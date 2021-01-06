@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<title>Toyama</title>
+		<meta charset="utf-8"/>
+
+		<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+		
+		<script src='https://api.mapbox.com/mapbox-gl-js/v0.54.0/mapbox-gl.js'></script>
+		<link href='https://api.mapbox.com/mapbox-gl-js/v0.54.0/mapbox-gl.css' rel='stylesheet' />
+		
+		<link rel="stylesheet" type="text/css" href="css/main.css">
+
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+	</head>
+	<body>
+		<header>
+			<div id="boxTitle"><img src="img/marker.png" alt="Logo Japon" /><h2>Bienvenue <span>à</span> Toyama</h2></div>
+		</header>
+
+		<!--------------------->
+		<!----  LE SLIDER  ---->
+		<!--------------------->
+
+		<div id="slider">
+			<div id="sliderImages">
+				<figure class="sliderElt">
+					<img src="img/slider_1.png" alt="slider_1" />
+				</figure>
+				<figure class="sliderElt">
+					<img src="img/slider_2.png" alt="slider_2" />
+				</figure>
+				<figure class="sliderElt">
+					<img src="img/slider_3.png" alt="slider_3" />
+				</figure>
+				<figure class="sliderElt">
+					<img src="img/slider_4.png" alt="slider_4" />
+				</figure>
+			</div>
+
+			<div id="sliderControls">
+				<div id="leftArrow"><i class="fas fa-arrow-left"></i></div>
+				<div id="rightArrow"><i class="fas fa-arrow-right"></i></div>
+			</div>
+
+			<div>
+				<i id="sliderPause" class="fas fa-pause"></i>
+				<i id="sliderPlay" class="fas fa-play"></i>
+			</div>
+		</div>
+		
+
+		<div id="mapContainer">
+
+			<!------------------>
+			<!----  LA MAP  ---->
+			<!------------------>
+
+			<div id="map"></div>
+
+
+			<!------------------------->
+			<!----  LE FORMULAIRE  ---->
+			<!------------------------->
+
+			<div id="resaForm">
+				<form>
+					<fieldset>
+						<legend>Détails de la station</legend>
+						<table>
+							<tr>
+								<td colspan="2">
+									<p class="formSpace">
+										<input id="nom" type="hidden" value=""/>
+										Adresse: <span id="adresse" class="colorInfos">...</span>
+									</p>
+									<p class="formSpace">Etat: <span id="status" class="colorInfos">25</span></p>
+									<p><span id="bikes" class="colorInfos">6</span> Vélos disponibles</p>
+									<p class="formSpace"><span id="stands" class="colorInfos">25</span> Places disponibles</p>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<label>Nom: </label>
+								</td>
+								<td>
+									<input id="nomVisiteur" class="textForm" type="text" name="nom" required autofocus/>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<label>Prénom: </label>
+								</td>
+								<td>
+									<input id="prenomVisiteur" class="textForm" type="text" name="prenom" required/>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="2">
+									<input id="formButton" type="submit" name="Reserver" value="Réserver"/>
+								</td>
+							</tr>
+						</table>
+					</fieldset>
+				</form>
+			</div>	
+
+
+			<!--------------------->
+			<!----  LE CANVAS  ---->
+			<!--------------------->
+
+			<div id="resaCanvas">
+				<p>Merci de signer dans la case ci-dessous :</p>
+				<canvas id="canvas" width="400" height="400">Votre navigateur ne prend pas en charge les canvas !</canvas>
+				<form><input id="canvasButton" type="submit" name="Valider" value="Valider ma réservation"/></div></form>
+			</div>
+		</div>
+
+
+		<!-------------------->
+		<!----  LE TIMER  ---->
+		<!-------------------->
+
+		<div id="timer">
+			<p>Vélo réservé à la station <span id="stationName" class="colorInfos">...</span> par <span id="firstName" class="colorInfos">Prenom</span> <span id="lastName" class="colorInfos">Nom</span></p>
+			<p id="timerGlobal">Temps restant : <span id="minutes"></span> min <span id="secondes"></span> sec.</p>
+		</div>
+		
+		<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+		<script type="text/javascript" src="js/reqajax.js"></script>
+		<script type="text/javascript" src="js/timer.js"></script>
+		<script type="text/javascript" src="js/slider.js"></script>
+		<script type="text/javascript" src="js/canvas.js"></script>
+		<script type="text/javascript" src="js/map.js"></script>
+		<script type="text/javascript" src="js/main.js"></script>
+	</body>
+</html>
